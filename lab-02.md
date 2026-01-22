@@ -37,8 +37,28 @@ facet_wrap(~ continent)
 ### Exercise 2
 
 ``` r
-# insert code here
+ggplot(
+  data = plastic_waste,
+  mapping = aes(
+    x = plastic_waste_per_cap,
+    color = continent,
+    fill = continent,
+  )
+) +
+  geom_density(alpha = 0.175)
 ```
+
+    ## Warning: Removed 51 rows containing non-finite outside the scale range
+    ## (`stat_density()`).
+
+![](lab-02_files/figure-gfm/plastic-waste-density-1.png)<!-- -->
+
+The color and fill of the curves were defined by mapping aesthetics
+because if the info is to be in the legend, it must be a part of this
+layer. Also, it allows the colors to scale for each group. The alpha
+level is defined as a characteristic of the plotting geom because it is
+a element universally applied to all of the groups rather than
+differently for them individually.
 
 ### Exercise 3
 
