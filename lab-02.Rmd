@@ -44,11 +44,31 @@ The color and fill of the curves were defined by mapping aesthetics because if t
 
 ### Exercise 3
 
-Remove this text, and add your answer for Exercise 3 here.
+Violin plots are capable of revealing the shape of the distribution, including peaks and skewness, while box plots provide more information on quartiles and extreme outliers. 
 
 ```{r plastic-waste-violin}
-# insert code here
+ggplot(
+  data = plastic_waste,
+  mapping = aes(
+    x = continent,
+    y = plastic_waste_per_cap
+  )
+) +
+  geom_boxplot()
 ```
+
+```{r}
+ggplot(
+  data = plastic_waste,
+  mapping = aes(
+    x = continent,
+    y = plastic_waste_per_cap
+    
+  )
+) +
+  geom_violin()
+```
+
 
 ### Exercise 4
 
