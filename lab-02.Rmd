@@ -1,7 +1,7 @@
 ---
 title: "Lab 02 - Plastic waste"
-author: "Insert your name here"
-date: "Insert date here"
+author: "Saima Arina"
+date: "01/22/2026"
 output: github_document
 ---
 
@@ -19,10 +19,11 @@ plastic_waste <- read.csv("data/plastic-waste.csv")
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
+In terms of their plastic waste per capita, it seems that North America has the highest, with the Trinidad and Tobago outlier of over 3.5 kg/person and also a skew towards higher numbers. Oceania and South America share similar distributions. Africa seems to have the lowest, with most countries below 0.2 kg/person. Asia seems to have a skew towards the right. 
 
 ```{r plastic-waste-continent}
-# insert code here
+ggplot(data = plastic_waste, mapping = aes (x = plastic_waste_per_cap)) + geom_histogram (binwidth = 0.1) +
+facet_wrap(~ continent)
 ```
 
 ### Exercise 2
