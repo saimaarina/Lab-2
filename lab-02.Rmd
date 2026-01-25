@@ -105,10 +105,36 @@ ggplot(data = plastic_waste,
 
 ### Exercise 5
 
-Remove this text, and add your answer for Exercise 5 here.
 
 ```{r recreate-viz}
-# insert code here
+ex5data = mutate(filter(plastic_waste,plastic_waste_per_cap <= 3),
+         coastal_prop = coastal_pop / total_pop) 
+
+  ggplot(data = ex5data,
+    aes(
+      x = coastal_prop,
+      y = plastic_waste_per_cap,
+      color = continent
+    )
+  ) +
+  geom_point(alpha = 0.4) +
+  geom_smooth(
+    method = "loess",
+    se = TRUE,
+    color = "black"
+  ) +
+  scale_color_viridis_d() +
+  labs(
+    title = "Plastic waste vs. coastal population proportion",
+    subtitle = "by continent",
+    x = "Coastal population proportion (Coastal / total population)",
+    y = "Plastic waste per capita",
+    color = "Continent"
+  ) +
+    scale_color_viridis_d()
 ```
 
 
+I had to look some of this code up, because I got stuck trying to figure out how to code for things like the regression line and how to do the shading around it, but then I plugged it into AI and asked it to explain the code one by one and it makes more sense. 
+
+Overall, I see that countries with a moderate share of their population living in coastal areas tend to have higher plastic waste per capita than those at either very low or very high coastal proportions, showing a nonlinear association instead of a more simple straight-line trend. At low coastal population proportions, plastic waste per capita is generally sized, then increases as the coastal share rises, before tapering off again among countries where almost everyone lives near the coast. 
